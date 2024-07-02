@@ -1,9 +1,20 @@
-import { Router } from "express";
-import { test } from "../controllers/user.controller.js";
+import { Router } from 'express';
+import {
+  deleteUser,
+  signout,
+  test,
+  updateUser,
+} from '../controllers/user.controller.js';
+import { verifyToken } from '../utils/verifyUser.js';
 
 const router = Router();
 
 router.get('/test', test);
 
+router.put('/update/:userId', verifyToken, updateUser);
 
-export  default router;
+router.delete('/delete/:userId', verifyToken, deleteUser);
+
+router.post('/signout', signout);
+
+export default router;
