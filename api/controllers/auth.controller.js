@@ -58,6 +58,8 @@ export const signin = async (req, res, next) => {
       .status(200)
       .cookie('access_token', token, {
         httpOnly: true,
+        secure: true,
+        sameSite: 'None',
       })
       .json(rest);
   } catch (error) {
@@ -79,6 +81,8 @@ export const google = async (req, res, next) => {
         .status(200)
         .cookie('access_token', token, {
           httpOnly: true,
+          secure: true,
+          sameSite: 'None',
         })
         .json(rest);
     } else {
@@ -102,7 +106,11 @@ export const google = async (req, res, next) => {
       const { password, ...rest } = newUser._doc;
       res
         .status(200)
-        .cookie('access_token', token, { httpOnly: true })
+        .cookie('access_token', token, {
+          httpOnly: true,
+          secure: true,
+          sameSite: 'None',
+        })
         .json(rest);
     }
   } catch (error) {

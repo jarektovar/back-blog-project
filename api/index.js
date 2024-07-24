@@ -5,8 +5,11 @@ import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import postRoutes from './routes/post.route.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 config();
+
+const PORT = process.env.PORT || 3000;
 
 mongoose
   .connect(process.env.MONGO_URL)
@@ -18,10 +21,11 @@ mongoose
   });
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('Probando server en el puerto 3000 xd');
 });
 
