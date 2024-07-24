@@ -9,7 +9,6 @@ import cors from 'cors';
 
 config();
 
-app.use(cors());
 const PORT = process.env.PORT || 3000;
 
 mongoose
@@ -22,6 +21,7 @@ mongoose
   });
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
