@@ -61,6 +61,7 @@ export const signin = async (req, res, next) => {
         secure: true,
         sameSite: 'None',
       })
+      .setHeader('Content-Type', 'application/json')
       .json(rest);
   } catch (error) {
     next(error);
@@ -84,6 +85,7 @@ export const google = async (req, res, next) => {
           secure: true,
           sameSite: 'None',
         })
+        .setHeader('Content-Type', 'application/json')
         .json(rest);
     } else {
       const generatedPassword =
@@ -111,6 +113,7 @@ export const google = async (req, res, next) => {
           secure: true,
           sameSite: 'None',
         })
+        .setHeader('Content-Type', 'application/json')
         .json(rest);
     }
   } catch (error) {
