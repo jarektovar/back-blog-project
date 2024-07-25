@@ -21,12 +21,6 @@ mongoose
   });
 const app = express();
 
-app.use(
-  cors({
-    origin: 'https://project-blog-peach.vercel.app', // Asegúrate de cambiar esto por el origen real de tu frontend
-    credentials: true, // Si estás enviando cookies o headers de autenticación
-  })
-);
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
