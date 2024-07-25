@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import {
   deleteUser,
+  getUser,
   getUsers,
   signout,
   test,
@@ -134,5 +135,7 @@ router.get('/getusers', verifyToken, getUsers);
 
 
 router.delete('/deleteusers', verifyToken, deleteUser)
+//route.get('/:userId', getUsers)
+router.get('/:userId', getUser)
 
 export default router;
